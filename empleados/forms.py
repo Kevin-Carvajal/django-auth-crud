@@ -20,7 +20,7 @@ class EmpleadoForm(forms.ModelForm):
             'nombres': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombres'}),
             'apellidos': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellidos'}),
             'correo': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'correo@ejemplo.com'}),
-            'sueldo': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01', 'placeholder': 'Sueldo'}),
+            'sueldo': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01', 'min': '0.01', 'placeholder': 'Sueldo'}),
             'fecha_ingreso': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'cargo': forms.Select(attrs={'class': 'form-select'}),
         }

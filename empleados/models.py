@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 
 
@@ -13,7 +14,11 @@ class Empleado(models.Model):
     nombres = models.CharField(max_length=100)
     apellidos = models.CharField(max_length=100)
     correo = models.EmailField()
-    sueldo = models.DecimalField(max_digits=10, decimal_places=2)
+    sueldo = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        validators=[MinValueValidator(0.01, message='El sueldo debe ser mayor a 0.')],
+    )
     fecha_ingreso = models.DateField()
     cargo = models.ForeignKey(Cargo, on_delete=models.PROTECT, related_name='empleados')
 
