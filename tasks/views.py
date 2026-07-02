@@ -28,11 +28,11 @@ def signup(request):
             except IntegrityError:
                 return render(request, 'signup.html', {
                     'form': UserCreationForm,
-                    "error": 'Username already exists'
+                    "error": 'El nombre de usuario ya existe'
                 })
         return render(request, 'signup.html', {
                     'form': UserCreationForm,
-                    "error": 'Password do not match'
+                    "error": 'Las contraseñas no coinciden'
                 })
 
 @login_required
@@ -53,7 +53,7 @@ def signin(request):
         if user is None:
             return render(request, 'signin.html', {
                 'form': AuthenticationForm,
-                'error': 'Username or password is incorrect'
+                'error': 'El usuario o la contraseña son incorrectos'
             })
         else:
             login(request, user)
